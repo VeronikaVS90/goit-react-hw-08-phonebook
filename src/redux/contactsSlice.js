@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './api';
-import { STATUS } from 'redux/status';
+import { STATUS } from 'redux/constants';
 const { IDLE, PENDING, FULFILLED, REJECTED } = STATUS;
 
 const handlePending = state => {

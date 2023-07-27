@@ -11,7 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/api';
-import { getContacts } from 'redux/selectors';
+import { getContacts } from 'redux/contactsSelectors';
 
 export const ContactForm = () => {
   const nameID = nanoid();
