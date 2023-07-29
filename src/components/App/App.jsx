@@ -1,41 +1,45 @@
-// import {
-//   PhonebookWrapper,
-//   PhonebookTitle,
-//   PhonebookSubTitle,
-// } from './App.styled';
-// import { ContactForm } from 'components/Form/Form';
-// import { ContactList } from 'components/ContactList/ContactList';
-// import { Filter } from 'components/Filter/Filter';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-// import { fetchContacts } from 'redux/api';
-// import { getContacts, getStatus } from 'redux/contactsSelectors';
-// import { STATUS } from 'redux/constants';
-// const { IDLE, PENDING, REJECTED } = STATUS;
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { recoverySession } from 'redux/authOperations';
+import { getAuthStatus } from 'redux/authSelectors';
+import { STATUS } from 'redux/constants';
+import PrivateRoute from 'components/PrivateRoute';
+import RestrictedRoute from 'components/RestrictedRoute';
+import { LoadingIcon } from 'components/SharedLayout/SharedLayout.styled';
+const Register = lazy(() => import('pages/Register/Register'));
+const Login = lazy(() => import('pages/Login/Login'));
+const Contacts = lazy(() => import('pages/Contacts/Contacts'));
+const ErrorPage = lazy(() => import('components/ErrorPage/ErrorPage'));
+const Home = lazy(() => import('pages/Home/Home'));
 
-// export const App = () => {
-//   const dispatch = useDispatch();
-//   const status = useSelector(getStatus);
-//   const contacts = useSelector(getContacts);
+export const App = () => {
+  const dispatch = useDispatch();
+  const authStatus = useSelector(getAuthStatus);
 
-//   useEffect(() => {
-//     dispatch(fetchContacts());
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(recoverySession());
+  }, [dispatch]);
 
-//   const isContacts = status !== REJECTED && contacts.length !== 0;
-
-//   return (
-//     <PhonebookWrapper>
-//       <PhonebookTitle>Phonebook</PhonebookTitle>
-//       <ContactForm />
-//       <PhonebookSubTitle>Contacts</PhonebookSubTitle>
-//       {status === IDLE && <span>Let's add something here?</span>}
-//       {isContacts && <Filter />}
-//       {status === PENDING && <span>Updating, please wait...</span>}
-//       {isContacts && <ContactList />}
-//       {status === REJECTED && (
-//         <span>Oops, something went wrong. Please try again!</span>
-//       )}
-//     </PhonebookWrapper>
-//   );
-// };
+  return authStatus === STATUS.IDLE ? (
+    <LoadingIcon size="150px" />
+  ) : (
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />}></Route>
+        <Route path="login" element={<RestrictedRoute component={Login} />} />
+        <Route
+          path="register"
+          element={<RestrictedRoute component={Register} />}
+        />
+        <Route
+          path="contacts"
+          element={<PrivateRoute component={Contacts} />}
+        />
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
+  );
+};

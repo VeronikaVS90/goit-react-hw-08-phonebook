@@ -1,11 +1,28 @@
+import { useEffect } from 'react';
 import { ContactsList } from './ContactList.styled';
-import { ContactListItems } from './ContactListItems/ContactListItems';
-import { useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/contactsSelectors';
+import { ContactListItem } from 'components/ContactListItem/ContactListItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAll } from 'redux/contactsOperations';
+import { getContacts, getContactsOperation } from 'redux/contactsSelectors';
+import { getIsLoggedIn } from 'redux/authSelectors';
+import { LoadingIcon } from 'components/SharedLayout/SharedLayout.styled';
+import { notification } from 'components/SharedLayout/notification';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
-  const filterValue = useSelector(getFilter);
+  const contactsOperation = useSelector(getContactsOperation);
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const filterValue = useSelector(({ filter }) => filter);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    isLoggedIn &&
+      dispatch(fetchAll()).catch(() => {
+        notification(
+          'We are failed with loading your contacts. Please, try again..'
+        );
+      });
+  }, [dispatch, isLoggedIn]);
 
   const filteredContacts = (() => {
     const normalizedFilter = filterValue.toLowerCase();
@@ -14,14 +31,16 @@ export const ContactList = () => {
     );
   })();
 
-  return (
+  return contactsOperation === 'fetchAll' ? (
+    <LoadingIcon size="150px" />
+  ) : (
     <ContactsList>
-      {filteredContacts.length ? (
-        filteredContacts.map(({ id, name, number }) => (
-          <ContactListItems key={id} id={id} name={name} number={number} />
+      {contacts.length > 0 ? (
+        filteredContacts.map(contact => (
+          <ContactListItem key={contact.id} contact={contact} />
         ))
       ) : (
-        <p>No contacts yet...</p>
+        <span>There are no contacts in your phonebook, yet.</span>
       )}
     </ContactsList>
   );
