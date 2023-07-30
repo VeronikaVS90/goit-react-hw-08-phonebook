@@ -19,7 +19,7 @@ export const ContactList = () => {
     isLoggedIn &&
       dispatch(fetchAll()).catch(() => {
         notification(
-          'We are failed with loading your contacts. Please, try again..'
+          'We are failed with loading your contacts. Please, try again...'
         );
       });
   }, [dispatch, isLoggedIn]);

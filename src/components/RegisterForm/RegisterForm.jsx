@@ -60,7 +60,7 @@ export const RegisterForm = () => {
     dispatch(createNewUser({ name, email, password })).then(response => {
       if (response.meta.requestStatus === FULFILLED) {
         reset({ name: '', email: '', password: '' });
-        notification(`Welcome to your 'Be inTouch'`, 'success');
+        notification(`Welcome to your Marvelous Phonebook!`, 'success');
         return;
       }
       notification(

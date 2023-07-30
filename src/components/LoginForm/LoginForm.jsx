@@ -52,7 +52,7 @@ export const LoginForm = () => {
     dispatch(logIn({ email, password })).then(response => {
       if (response.meta.requestStatus === FULFILLED) {
         reset({ email: '', password: '' });
-        notification(`Welcome to your 'Be inTouch'`, 'success');
+        notification(`Welcome to your Marvelous Phonebook!`, 'success');
         return;
       }
       notification('Something went wrong. Please, check the inputed info');

@@ -66,14 +66,6 @@ export const ContactsLogo = styled(MdContactPhone)`
   left: 0;
 `;
 
-// export const ContactsLogo2 = styled(MdOutlineContacts)`
-//   position: absolute;
-//   opacity: 0;
-//   top: 0;
-//   left: 0;
-//   animation: slideIcon 6s infinite 3s;
-// `;
-
 export const MainWrapper = styled.main`
   padding: 100px 0 40px;
 `;

@@ -18,7 +18,7 @@ export const ErrorPage = () => {
       <HomeTextWrapper>
         <HomeTitle>ERROR 404</HomeTitle>
         <HomeDescription>
-          Sorry, page is not found. Try navigate to home page.
+          Sorry, page is not found. Try navigate to the homepage.
         </HomeDescription>
         <HomeAuthLinksList>
           <li>
