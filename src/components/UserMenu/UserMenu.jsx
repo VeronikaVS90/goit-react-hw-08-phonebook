@@ -3,7 +3,7 @@ import { logOut } from 'redux/authOperations';
 import { getAuthStatus, getUserName } from 'redux/authSelectors';
 import { LogOutButton, UserMenuWrapper, WelcomeTitle } from './UserMenu.styled';
 import { MdLogout } from 'react-icons/md';
-import { FaUserSecret } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 import { LoadingIcon } from 'components/SharedLayout/SharedLayout.styled';
 import { STATUS } from 'redux/constants';
 import { notification } from 'components/SharedLayout/notification';
@@ -20,7 +20,7 @@ const UserMenu = () => {
 
   return (
     <UserMenuWrapper>
-      <FaUserSecret size="36px" />
+      <FaUserCircle size="36px" />
       <WelcomeTitle>{userName}</WelcomeTitle>
       <LogOutButton
         type="button"

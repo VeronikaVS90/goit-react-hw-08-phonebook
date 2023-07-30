@@ -4,8 +4,7 @@ import {
   Header,
   AppLogo,
   MainWrapper,
-  ContactsLogo1,
-  ContactsLogo2,
+  ContactsLogo,
   LogoWrapper,
   LoadingIcon,
 } from './SharedLayout.styled';
@@ -24,10 +23,9 @@ export const SharedLayout = () => {
       <Header>
         <LogoWrapper to="/">
           <AppLogo>
-            <ContactsLogo1 size="50px" className="firstChild" />
-            <ContactsLogo2 size="50px" className="secondChild" />
+            <ContactsLogo size="50px" />
           </AppLogo>
-          <h2>Be inTouch</h2>
+          <h2>Marvelous Phonebook</h2>
         </LogoWrapper>
         <Navigation />
         {isLoggedIn && <UserMenu />}

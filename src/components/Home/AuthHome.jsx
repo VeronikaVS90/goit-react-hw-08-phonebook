@@ -9,7 +9,7 @@ import {
   UserName,
   UserEmail,
 } from 'pages/Home/Home.styled';
-import { FaUserSecret } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { getUserEmail, getUserName } from 'redux/authSelectors';
 
@@ -20,12 +20,12 @@ export const AuthHome = () => {
   return (
     <HomeWrapper>
       <UserLogo>
-        <FaUserSecret size="200px" />
+        <FaUserCircle size="200px" />
         <UserName>{userName}</UserName>
         <UserEmail>{userEmail}</UserEmail>
       </UserLogo>
       <HomeTextWrapper>
-        <HomeTitle> Welcome to your "Be inTouch" homepage</HomeTitle>
+        <HomeTitle> Hello! Welcome to your homepage!</HomeTitle>
         <HomeDescription>
           Manage your contacts on "Contacts" page
         </HomeDescription>

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { MdContacts, MdOutlineContacts } from 'react-icons/md';
-import { FaReact } from 'react-icons/fa';
+import { MdContactPhone } from 'react-icons/md';
+import { FaPhoenixSquadron } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
@@ -60,26 +60,25 @@ export const AppLogo = styled.div`
   overflow: hidden;
 `;
 
-export const ContactsLogo1 = styled(MdContacts)`
+export const ContactsLogo = styled(MdContactPhone)`
   position: absolute;
   top: 0;
   left: 0;
-  animation: slideIcon 6s infinite;
 `;
 
-export const ContactsLogo2 = styled(MdOutlineContacts)`
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  animation: slideIcon 6s infinite 3s;
-`;
+// export const ContactsLogo2 = styled(MdOutlineContacts)`
+//   position: absolute;
+//   opacity: 0;
+//   top: 0;
+//   left: 0;
+//   animation: slideIcon 6s infinite 3s;
+// `;
 
 export const MainWrapper = styled.main`
   padding: 100px 0 40px;
 `;
 
-export const LoadingIcon = styled(FaReact)`
+export const LoadingIcon = styled(FaPhoenixSquadron)`
   display: block;
   margin-top: 100px;
   margin: auto;

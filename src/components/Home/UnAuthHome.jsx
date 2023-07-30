@@ -18,10 +18,10 @@ export const UnAuthHome = () => {
         <ContactsLogo2 size="200px" />
       </AppLogo>
       <HomeTextWrapper>
-        <HomeTitle>Welcome to your "Be inTouch" phonebook</HomeTitle>
+        <HomeTitle>Welcome to your Marvelous Phonebook!</HomeTitle>
         <HomeDescription>
-          Here you can manage your contacts, call them, add or remove if it is
-          outdated. To use all application functions you must be authorized
+          Here you can manage your contacts. To use all application functions
+          you must be authorized. Let's get started!
         </HomeDescription>
         <HomeAuthLinksList>
           <li>

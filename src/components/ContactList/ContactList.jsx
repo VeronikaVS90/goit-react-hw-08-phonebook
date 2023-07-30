@@ -40,7 +40,7 @@ export const ContactList = () => {
           <ContactListItem key={contact.id} contact={contact} />
         ))
       ) : (
-        <span>There are no contacts in your phonebook, yet.</span>
+        <span>It's still empty here. Let's add something?</span>
       )}
     </ContactsList>
   );
