@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { MdContacts, MdOutlineContacts } from 'react-icons/md';
+import { MdContactPhone } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 export const HomeWrapper = styled.div`
@@ -17,11 +17,10 @@ export const AppLogo = styled.div`
   overflow: hidden;
 `;
 
-export const ContactsLogo1 = styled(MdContacts)`
+export const ContactsLogo = styled(MdContactPhone)`
   position: absolute;
   top: 0;
   left: 0;
-  animation: slideIcon 6s infinite;
 `;
 
 export const UserLogo = styled.div`
@@ -56,13 +55,13 @@ export const HomeDescription = styled.p`
   margin-bottom: 20px;
 `;
 
-export const ContactsLogo2 = styled(MdOutlineContacts)`
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  animation: slideIcon 6s infinite 3s;
-`;
+// export const ContactsLogo2 = styled(MdOutlineContacts)`
+//   position: absolute;
+//   opacity: 0;
+//   top: 0;
+//   left: 0;
+//   animation: slideIcon 6s infinite 3s;
+// `;
 
 export const HomeAuthLinksList = styled.ul`
   display: flex;

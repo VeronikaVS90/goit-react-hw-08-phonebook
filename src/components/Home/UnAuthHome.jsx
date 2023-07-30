@@ -1,8 +1,7 @@
 import {
   HomeTitle,
   AppLogo,
-  ContactsLogo1,
-  ContactsLogo2,
+  ContactsLogo,
   HomeWrapper,
   HomeTextWrapper,
   HomeAuthLinks,
@@ -14,8 +13,7 @@ export const UnAuthHome = () => {
   return (
     <HomeWrapper>
       <AppLogo>
-        <ContactsLogo1 size="200px" />
-        <ContactsLogo2 size="200px" />
+        <ContactsLogo size="200px" />
       </AppLogo>
       <HomeTextWrapper>
         <HomeTitle>Welcome to your Marvelous Phonebook!</HomeTitle>
